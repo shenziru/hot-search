@@ -2,9 +2,13 @@ import os
 import json
 import requests
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
+
+# 加载环境变量
+load_dotenv()
 
 # DeepSeek API设置
-DEEPSEEK_API_KEY = "sk-e4e5a270f9874d6f9e66c9c2e557c3ef"
+DEEPSEEK_API_KEY = os.getenv('DEEPSEEK_API_KEY')
 DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
 
 def predict_hot_topics(current_data):

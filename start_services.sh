@@ -34,8 +34,24 @@ start_backend() {
   # 检查是否存在.env文件
   if [ ! -f "$PROJECT_DIR/backend/.env" ]; then
     echo "警告: 未找到.env文件，创建默认配置文件"
-    echo "DEEPSEEK_API_KEY=your_api_key_here" > "$PROJECT_DIR/backend/.env"
-    echo "请修改 backend/.env 文件并设置您的DeepSeek API密钥"
+    cat > "$PROJECT_DIR/backend/.env" << EOF
+# DeepSeek API密钥
+DEEPSEEK_API_KEY=your_api_key_here
+
+# 服务器设置
+PORT=5000
+DEBUG=True
+
+# 定时任务设置
+SCRAPER_INTERVAL_HOURS=1
+PREDICTION_HOUR=23
+PREDICTION_MINUTE=0
+
+# 脉脉账户信息
+MAIMAI_USERNAME=your_username_here
+MAIMAI_PASSWORD=your_password_here
+EOF
+    echo "请修改 backend/.env 文件并设置您的DeepSeek API密钥和脉脉账户信息"
   fi
   
   # 检查虚拟环境
