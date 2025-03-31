@@ -1,0 +1,189 @@
+/* 基础样式 */
+body {
+    font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* 主要样式 */
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 状态指示器样式 */
+.status-indicator {
+    margin: 20px 0;
+    padding: 10px;
+}
+
+.status-indicator .badge {
+    font-size: 0.9rem !important;
+    padding: 6px 10px !important;
+}
+
+.status-indicator .alert {
+    border-left: 5px solid #6c757d;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 导航栏样式 */
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+/* 热搜列表样式 */
+.hot-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.hot-list .list-group-item {
+    border-left: none;
+    border-right: none;
+    padding: 0.75rem 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.hot-list .list-group-item:hover {
+    background-color: rgba(0, 123, 255, 0.05);
+}
+
+.hot-list .list-group-item a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding-left: 25px;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.hot-list .list-group-item a:before {
+    content: attr(data-rank);
+    position: absolute;
+    left: 0;
+    width: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #777;
+}
+
+.hot-list .list-group-item:nth-child(-n+3) a:before {
+    color: #dc3545;
+}
+
+/* 预测卡片样式 */
+.prediction-card {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+}
+
+.prediction-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.prediction-card .card-header {
+    padding: 15px;
+    font-weight: bold;
+}
+
+.prediction-title {
+    background-color: #f8f9fa;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.prediction-title:hover {
+    background-color: #e9ecef;
+}
+
+.prediction-date-container {
+    background-color: white;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .hot-list {
+        max-height: 300px;
+    }
+    
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .status-indicator {
+        flex-direction: column;
+    }
+    
+    .status-indicator .badge {
+        margin-top: 10px;
+    }
+}
+
+/* 加载动画 */
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+/* 刷新按钮动画 */
+.refresh-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 卡片样式 */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.card-header {
+    font-weight: 600;
+}
+
+/* 链接样式 */
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* 按钮样式 */
+.refresh-btn {
+    transition: all 0.3s ease;
+}
+
+.refresh-btn:hover {
+    transform: scale(1.05);
+} 
